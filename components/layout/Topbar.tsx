@@ -2,7 +2,7 @@
 
 import { Bell, Search } from "lucide-react";
 import { usePathname } from "next/navigation";
-
+import MobileNav from "@/components/layout/MobileNav";
 export default function Topbar() {
   const pathname = usePathname();
 
@@ -14,7 +14,7 @@ export default function Topbar() {
         : "Employee Management";
 
   return (
-    <header className="flex min-h-20 flex-wrap items-center justify-between gap-4 border-b border-gray-200 bg-white px-5 py-4 sm:px-8">
+    <header className="relative flex min-h-20 flex-wrap items-center justify-between gap-4 border-b border-gray-200 bg-white px-5 py-4 sm:px-8">
       <div>
         <h2 className="text-xl font-semibold tracking-tight text-gray-900">
           {pageTitle}
