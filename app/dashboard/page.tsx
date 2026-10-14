@@ -47,7 +47,7 @@ export default function DashboardPage() {
             Dashboard
           </h1>
           <p className="mt-2 text-sm text-gray-500">
-            Here's an overview of your employee directory.
+            Here is an overview of your employee directory.
           </p>
         </div>
 

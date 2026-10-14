@@ -10,7 +10,7 @@ export default function EmployeesPage() {
           Employee Directory
         </h1>
         <p className="mt-1 text-sm text-gray-500">
-          View and search your organization's employee records.
+          View and search your organization employee records.
         </p>
       </div>
 
