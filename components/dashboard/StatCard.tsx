@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import AnimatedCount from "@/components/dashboard/AnimatedCount";
 
 type StatCardProps = {
   title: string;
@@ -16,8 +17,8 @@ export default function StatCard({
   iconClassName,
 }: StatCardProps) {
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-white/[0.09] bg-[#08090B] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 sm:p-6">
-      <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-white/[0.03] blur-3xl transition-all duration-300 group-hover:bg-white/[0.08]" />
+    <article className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#08090B] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 sm:p-6">
+      <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-white/[0.03] blur-3xl transition group-hover:bg-white/[0.07]" />
 
       <div className="relative flex items-start justify-between gap-4">
         <div className="min-w-0">
@@ -26,7 +27,7 @@ export default function StatCard({
           </p>
 
           <p className="mt-4 text-4xl font-semibold tracking-tight text-white">
-            {value.toLocaleString()}
+            <AnimatedCount value={value} />
           </p>
 
           <p className="mt-2 text-sm text-zinc-500">{description}</p>
@@ -39,9 +40,7 @@ export default function StatCard({
         </div>
       </div>
 
-      <div
-        className={`absolute bottom-0 left-0 h-[3px] w-0 transition-all duration-300 group-hover:w-full ${iconClassName.includes("lime") ? "bg-[#C6FF00]" : iconClassName.includes("pink") ? "bg-[#FF3CAC]" : iconClassName.includes("cyan") ? "bg-[#00E5FF]" : "bg-[#FF6B35]"}`}
-      />
+      <div className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-[#C6FF00] transition-transform duration-300 group-hover:scale-x-100" />
     </article>
   );
 }
