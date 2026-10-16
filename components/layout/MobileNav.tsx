@@ -15,33 +15,30 @@ export default function MobileNav() {
   const pathname = usePathname();
 
   return (
-    <div className="md:hidden">
+    <div className="relative md:hidden">
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
         aria-label={open ? "Close navigation" : "Open navigation"}
         aria-expanded={open}
-        className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 text-gray-700"
+        className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-[#08090B] text-zinc-300 transition hover:border-[#C6FF00]/30 hover:text-[#C6FF00]"
       >
         {open ? <X size={20} /> : <Menu size={20} />}
       </button>
-
       {open && (
-        <nav className="absolute left-0 right-0 top-20 z-50 border-b border-gray-200 bg-white p-4 shadow-lg">
+        <nav className="absolute left-0 top-14 z-50 w-60 rounded-2xl border border-white/10 bg-[#15171C] p-3 shadow-2xl shadow-black/50">
           {links.map((link) => {
             const Icon = link.icon;
-            const active = pathname === link.href;
-
+            const active =
+              link.href === "/dashboard"
+                ? pathname === link.href
+                : pathname.startsWith(link.href);
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`mb-1 flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium ${
-                  active
-                    ? "bg-indigo-50 text-indigo-700"
-                    : "text-gray-600 hover:bg-gray-50"
-                }`}
+                className={`mb-1 flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition ${active ? "bg-[#C6FF00]/10 text-[#C6FF00]" : "text-zinc-400 hover:bg-white/5 hover:text-white"}`}
               >
                 <Icon size={19} />
                 {link.label}
